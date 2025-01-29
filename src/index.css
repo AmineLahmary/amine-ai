@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:focus,
+button:focus-visible,
+input:focus-visible {
+  outline: none;
+}
+
+@layer base {
+  body {
+    @apply bg-stone-950;
+  }
+  #root {
+    @apply h-screen w-full;
+  }
+  button {
+    @apply bg-[#FF0033] text-stone-100 rounded-full p-1;
+  }
+  button:hover {
+    border-color: #646cff;
+  }
+
+}
+
+@layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+}
+
+@layer components {
+  .answer-container {
+    @apply max-w-[calc(100%-(30px+1.25rem))];
+    & div {
+      @apply w-full;
+    }
+    & ul {
+      @apply pl-5;
+    }
+    & p {
+      @apply my-2;
+    }
+    & code {
+      @apply bg-gray-900 p-1 relative;
+    }
+    & code[class]::before {
+      @apply px-3 py-1 rounded-full absolute top-2 left-2 bg-stone-950 text-sm text-gray-400;
+      content: attr(class);
+
+    }
+    & code[class] {
+      @apply bg-gray-900 p-6 pt-12 m-6 rounded-[15px] flex flex-col overflow-x-scroll overflow-y-visible;
+    }
+  }
+}
