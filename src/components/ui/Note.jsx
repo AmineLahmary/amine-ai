@@ -8,8 +8,8 @@ function Note({closeNote}) {
 
             <button
             onClick={closeNote} 
-            className="ml-10 text-sm flex justify-center items-center bg-transparent text-red-500 border border-red-500 h-[30px] w-[30px]">
-                X
+            className="ml-10 text-sm flex justify-center items-center bg-transparent bg-red-500 border border-red-500 h-[30px] w-[30px]">
+                &times;
             </button>
         </div>
 

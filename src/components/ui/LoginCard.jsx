@@ -1,18 +1,23 @@
 import { useState } from 'react'
+import { useAuth } from '../../contexts/AuthContext'
+import PropTypes from 'prop-types'
 
 
-const LoginCard = (props) => {
-
-    const {openCloseLoginCard} = props;
+const LoginCard = ({openCloseLoginCard}) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const { login } = useAuth()
+
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        if( email.trim() == '' && password.trim().length < 8 ) return;
+        if( email.trim() == '' || password.trim().length < 8 ) {
+            alert("login is incorrect")
+            return;
+        }
 
-        localStorage.setItem('login', JSON.stringify({ email: email, password}))
+        login({ email: email, password})
         openCloseLoginCard();
     }
 
@@ -47,6 +52,10 @@ const LoginCard = (props) => {
             </div>
         </dialog>
     );
+}
+
+LoginCard.propTypes = {
+    openCloseLoginCard: PropTypes.func.isRequired
 }
 
 export default LoginCard;

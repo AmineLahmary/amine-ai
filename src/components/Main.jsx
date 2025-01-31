@@ -13,7 +13,7 @@ const generationConfig = {
     responseMimeType: "text/plain",
 };
 
-const Main = (props) => {
+const Main = () => {
 
     const [input, setInput] = useState('');
     const [conversation, setConversation] = useState('');
@@ -44,7 +44,6 @@ const Main = (props) => {
         const aiAnswer = await result.response.text();
         setConversation(prev => [...prev, {role: 'ai', content: aiAnswer}]);
         setLoading(false);
-        console.log(chatSession)
     }
 
     const keyPressHandler = (e) => {
@@ -59,14 +58,14 @@ const Main = (props) => {
     return (
         <main className='flex flex-col w-full p-5 h-[95vh]'>
             
-            <Navbar userEmail={props.userEmail}/>
+            <Navbar />
             <div className='max-w-[768px] w-full m-auto flex flex-col max-h-full'>
                    <div ref={answerContainer} className='answer-container relative flex flex-col gap-8 p-2 pb-4 mb-10 overflow-scroll no-scrollbar rounded-[15px] text-wrap'>
                        {conversation ? 
                            conversation.map((message, index) => (<Message key={index} message={message} />))   
                            :
                            <h1 className='text-4xl md:text-6xl text-balance'>Hello World,<br /> 
-                           Talk To AmineAI Chat
+                           Talk To <span className="text-red-600 drop-shadow-[0px_0px_5px_#f00]"><strong>AmineAI</strong></span> Chat
                                <svg xmlns="http://www.w3.org/2000/svg" className='inline ml-2 mb-2' width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" color="currentColor"><path d="M12 4.5a2.5 2.5 0 0 0-5 0a3 3 0 0 0-2.567 4.554a3.001 3.001 0 0 0 0 5.893A3 3 0 0 0 7 19.5a2.5 2.5 0 0 0 5-.001"/><path d="M12 19.5a2.5 2.5 0 0 0 5 0a3 3 0 0 0 2.567-4.553a3.001 3.001 0 0 0 0-5.893A3 3 0 0 0 17 4.5a2.5 2.5 0 0 0-5-.001"/><path d="M10.487 7.001V8.98M7 10.501h2.052m5.971 0h2.052m-2.052 2.974h2.052M7 13.475h2.052m1.435 1.545V17m3.025-1.98V17m-.009-10v1.98m-3.45 5.989h3.971a1 1 0 0 0 1-1V9.98a1 1 0 0 0-1-1h-3.971a1 1 0 0 0-1 1v3.989a1 1 0 0 0 1 1"/></g></svg>
                            </h1>
                        }

@@ -1,10 +1,15 @@
 import { useState } from 'react'
 import LoginCard from './ui/LoginCard';
 import Dropdown from './ui/Dropdown'
+import { useAuth } from '../contexts/AuthContext'
 
-const Navbar = (props) => {
+const Navbar = () => {
     
     const [isLoginCardOpen, setIsLoginCardOpen] = useState(false);
+
+    const { user } = useAuth()
+
+
 
     const openCloseLoginCard = () => {
         setIsLoginCardOpen(!isLoginCardOpen);
@@ -19,12 +24,12 @@ const Navbar = (props) => {
             <div>
                 { isLoginCardOpen ? <LoginCard openCloseLoginCard={openCloseLoginCard}/> : null }
                 {
-                    !props.userEmail ?
+                    !user ?
                     <button className="bg-transparent px-5" onClick={openCloseLoginCard}>
                         Login
                     </button>
                     :
-                    <Dropdown data={{userEmail: props.userEmail}}/>
+                    <Dropdown />
 
                 }
             </div>
