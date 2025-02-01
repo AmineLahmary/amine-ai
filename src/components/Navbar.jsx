@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between">
+    <nav className="flex justify-between pb-4">
       <div className="flex items-center gap-1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
