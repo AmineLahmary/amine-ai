@@ -43,7 +43,7 @@ const Dropdown = () => {
           My Profile
         </button>
         <div
-          className="absolute right-0 mt-4 min-w-[200px] rounded-md bg-stone-800 p-4"
+          className="absolute right-0 z-50 mt-4 min-w-[200px] rounded-md bg-stone-800 p-4"
           style={{ display: isDropdownOpen ? "block" : "none" }}
         >
           <h3>HELLO, {user.email.replace(/@.*/g, "")}</h3>
