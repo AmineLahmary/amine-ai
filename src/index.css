@@ -58,22 +58,21 @@ input:focus-visible {
     @apply h-screen w-full;
   }
   button {
-    @apply bg-[#FF0033] text-stone-100 rounded-full p-1;
+    @apply rounded-full bg-[#FF0033] p-1 text-stone-100;
   }
   button:hover {
     border-color: #646cff;
   }
-
 }
 
 @layer utilities {
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-    }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }
 
 @layer components {
@@ -89,15 +88,14 @@ input:focus-visible {
       @apply my-2;
     }
     & code {
-      @apply bg-gray-900 p-1 relative;
+      @apply relative bg-gray-900 p-1;
     }
     & code[class]::before {
-      @apply px-3 py-1 rounded-full absolute top-2 left-2 bg-stone-950 text-sm text-gray-400;
+      @apply absolute left-2 top-2 rounded-full bg-stone-950 px-3 py-1 text-sm text-gray-400;
       content: attr(class);
-
     }
     & code[class] {
-      @apply bg-gray-900 p-6 pt-12 m-6 rounded-[15px] flex flex-col overflow-x-scroll overflow-y-visible;
+      @apply m-6 flex flex-col overflow-y-visible overflow-x-scroll rounded-[15px] bg-gray-900 p-6 pt-12;
     }
   }
 }
