@@ -47,28 +47,46 @@ const Dropdown = () => {
           style={{ display: isDropdownOpen ? "block" : "none" }}
         >
           <h3>HELLO, {user.email.replace(/@.*/g, "")}</h3>
-          <hr className="my-2 opacity-50" />
-          <button
-            className="logout-btn flex w-max gap-2 bg-transparent"
-            onClick={logout}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
+          <hr className="my-3 opacity-30 mx-auto" />
+          <div className="flex flex-col gap-2 ">
+            <a href="http://amine-lahmary.dev/contact" target="_blank" className="flex gap-3 text-white hover:text-white text-sm">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.5em"
+                height="1.5em"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  d="M22 3L2 11l18.5 8zM10 20.5l3-4.5m2.5-6.5L9 14l.859 6.012c.078.546.216.537.306-.003L11 15z"
+                />
+              </svg>
+              Contact Me
+            </a>
+            <button
+              className="logout-btn flex w-max gap-2 bg-transparent text-sm"
+              onClick={logout}
             >
-              <path
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M16 4h3a2 2 0 0 1 2 2v1m-5 13h3a2 2 0 0 0 2-2v-1M4.425 19.428l6 1.8A2 2 0 0 0 13 19.312V4.688a2 2 0 0 0-2.575-1.916l-6 1.8A2 2 0 0 0 3 6.488v11.024a2 2 0 0 0 1.425 1.916M16.001 12h5m0 0l-2-2m2 2l-2 2"
-              />
-            </svg>
-            Logout
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.5em"
+                height="1.5em"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M16 4h3a2 2 0 0 1 2 2v1m-5 13h3a2 2 0 0 0 2-2v-1M4.425 19.428l6 1.8A2 2 0 0 0 13 19.312V4.688a2 2 0 0 0-2.575-1.916l-6 1.8A2 2 0 0 0 3 6.488v11.024a2 2 0 0 0 1.425 1.916M16.001 12h5m0 0l-2-2m2 2l-2 2"
+                />
+              </svg>
+              Logout
+            </button>
+          </div>
         </div>
       </div>
     </>
